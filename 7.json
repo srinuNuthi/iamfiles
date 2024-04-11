@@ -1,0 +1,31 @@
+{
+    "Version" : "2008-10-17",
+    "Statement" : [
+        {
+            "Effect" : "Allow",
+            "Action" : [
+                "ec2:Deleteinstance"
+            ],
+            "Resource" : "*",
+            "Condition" : {
+                "StringLike" : {
+                    "ec2:InstanceType" : ["t2.micro", "t2.large"]
+                }
+            }
+            
+        },
+         
+        {
+           "Effect" : "Deny",
+           "Action" : [
+            "efs:*"
+           ],
+           "Resource" : "*",
+           "Condition" : {
+             "StringNotEquals" : {
+                "aws:RequestedRegion" : "ap-south-1"
+             }
+           }
+        }
+    ]
+}
