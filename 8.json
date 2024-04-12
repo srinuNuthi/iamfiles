@@ -1,0 +1,22 @@
+{
+    "Version" : "2008-10-17",
+    "Statement" : [
+        {
+            "Effect" : "Allow",
+            "Action" : [
+                "*"
+            ],
+            "Resource" : "*",
+            "Condition" : {
+                "StringEquals" : {
+                    "aws:ResourceTag/environment" : [
+                        "test"
+
+                    ]
+                    
+                }
+            }
+        }
+
+    ]
+}
